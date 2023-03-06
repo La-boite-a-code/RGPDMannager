@@ -1,0 +1,39 @@
+{
+    "name": "laboiteacode/rgpd-manager",
+    "description": "Package offering to manage the entire interface in order to comply with GDPR regulations",
+    "type": "library",
+    "license": "MIT",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Laboiteacode\\RGPDManager\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laboiteacode\\RGPDManager\\RGPDManagerServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "La Boîte à Code",
+            "email": "contact@laboiteacode.fr"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-exif": "*",
+        "ext-fileinfo": "*",
+        "ext-json": "*",
+        "illuminate/database": "^9.18|^10.0",
+        "livewire/livewire": "^2.10",
+        "spatie/laravel-honeypot": "^4.3",
+        "spatie/laravel-cookie-consent": "^3.2",
+        "jantinnerezo/livewire-alert": "^2.2"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
