@@ -3,6 +3,7 @@
     "description": "Package offering to manage the entire interface in order to comply with GDPR regulations",
     "type": "library",
     "license": "MIT",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
