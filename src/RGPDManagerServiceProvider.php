@@ -31,18 +31,17 @@ class RGPDManagerServiceProvider extends \Illuminate\Support\ServiceProvider
             // Publish views
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/rgpdmanager'),
-            ], ['rgpdmanager', 'rgpdmanager:views']);
+            ], 'rgpdmanager-views');
 
             $this->publishes([
                 //__DIR__ . '/../database/migrations/create_terms_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_terms_table.php'),
                 //__DIR__ . '/../database/migrations/create_consents_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_consents_table.php'),
-                __DIR__.'/../database/migrations/2023_02_23_10000_create_terms_table.php' => database_path('migrations'),
-                __DIR__.'/../database/migrations/2023_02_23_10000_create_consents_table.php' => database_path('migrations')
-            ], ['rgpdmanager', 'rgpdmanager:migrations']);
+                __DIR__.'/../database/migrations/' => database_path('migrations'),
+            ], 'rgpdmanager-migrations');
 
             $this->publishes([
                 __DIR__.'/../lang' => $this->app->langPath('vendor/rgpdmanager'),
-            ], ['rgpdmanager', 'rgpdmanager:lang']);
+            ], 'rgpdmanager-lang');
         }
     }
 }
