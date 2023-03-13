@@ -5,7 +5,8 @@
   "Your consent has correctly been saved.": "Votre consentement a été enregistré correctement.",
   "Name": "Nom",
   "Email": "E-mail",
-  "Phone": "Téléphone",
+  "Phone Number": "Téléphone",
+  "Topic": "Sujet",
   "Your backup token": "Votre jeton de sauvegarde",
   "Transfer of data to a third party": "Transfert de données à un tiers",
   "Questions about your data?": "Des questions sur vos données?",
@@ -20,6 +21,12 @@
   "Date": "Date",
   "Nature": "Nature",
   "Opposition": "Opposition",
+  "Consent": "Consentement",
+  "Refuse": "Opposition",
   "Your Consents": "Vos consentements",
+  "See consent details": "Voir les détails du consentement",
+  "Responsible": "Responsable",
+  "Email Address": "Adresse e-mail",
+  "Send": "Envoyer",
   "From this page you can manage all the permissions you have granted to the site by activating / deactivating your consents.": "À partir de cette page, vous pouvez gérer toutes les autorisations que vous avez accordées au site en activant / désactivant vos consentements."
 }

@@ -15,7 +15,7 @@
             <div class="flex justify-center items-center h-full">
 
                 <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                    <input type="checkbox" name="consent_{{ $consentName }}" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="{{ $consentName }}" wire:model="consented" value="{{ old('consented', 1) }}" />
+                    <input type="checkbox" name="consent_{{ $consentName }}" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 text-white appearance-none cursor-pointer" id="{{ $consentName }}" wire:model="consented" value="{{ old('consented', 1) }}" />
                     <label for="consent_{{ $consentName }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                 </div>
 
@@ -25,7 +25,7 @@
                 <label class="font-medium text-gray-100" for="{{ $consentName }}">{{ __($title) }}</label>
                 <p class="text-left text-gray-500">{{ __($explanation) }}</p>
                 @if( $alreadyConsented )
-                        <a href="{{ route('rgpd-manager.details', ['token' => $token, 'slug' => \Illuminate\Support\Str::replace('_', '-', $consentName)]) }}" class="block pt-2 text-white" title="{{ __('See consent details') }}">{{ __('Consent Informations') }}</a>
+                        <a href="{{ route('rgpd-manager.details', ['token' => $token, 'slug' => \Illuminate\Support\Str::replace('_', '-', $consentName)]) }}" class="block pt-2 text-white" title="{{ __('See consent details') }}">{{ __('See consent details') }}</a>
                 @endif
             </div>
         </div>

@@ -3,18 +3,26 @@
 namespace Laboiteacode\RGPDManager\Http\Livewire;
 
 use Illuminate\Support\Facades\Mail;
+
 use Livewire\Component;
+use Livewire\WithFileUploads;
+
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 class Contact extends Component
 {
     use UsesSpamProtection;
+    use WithFileUploads;
 
     /**
      * @var \Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData
      */
     public HoneypotData $extraFields;
+
+    public array $fields = ['name', 'email', 'message'];
+
+    public array $formRules = [];
 
     /**
      * @var string
@@ -40,6 +48,11 @@ class Contact extends Component
      * @var string
      */
     public string $subject = '';
+
+    /**
+     * @var array
+     */
+    public array $files = [];
 
     /**
      * @var bool
@@ -78,12 +91,18 @@ class Contact extends Component
      */
     protected function rules(): array
     {
+        if( count($this->formRules) > 0 ) {
+            $this->formRules['isConsented'] = ['accepted'];
+            return $this->formRules;
+        }
+
         return [
             'name'          => ['required', 'min:3'],
             'email'         => ['required', 'email'],
             'message'       => ['required', 'min:10'],
             'isConsented'   =>  ['accepted'],
-            'subject'       => ['required', 'min:3']
+            'subject'       => ['nullable', 'min:3'],
+            'files.*'        => ['nullable', 'file', 'max:1024'],
         ];
     }
 
@@ -112,6 +131,15 @@ class Contact extends Component
     {
         $this->protectAgainstSpam();
         $this->validate();
+
+        $files = [];
+        foreach ($this->files as $file) {
+            $fileName = 'contact_' . now()->format('Y-m-d-H-i-s');
+            $files[] =  'contact_' . now()->format('Y-m-d-H-i-s'). '.' . $file->getClientOriginalExtension();
+            $file->store('contact_files', $fileName);
+        }
+
+        dd($files);
 
         Mail::to(config('rgpdmanager.pdo_email'))->send(new \Laboiteacode\RGPDManager\Mail\Contact([
             'name'          => $this->name,

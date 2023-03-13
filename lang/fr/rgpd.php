@@ -47,10 +47,10 @@ return [
     "message_sended"    =>  "vous a laissé le message suivant :",
 
     'titles'            =>  [
-        'consent-contact'   =>   'Consentement à la communication de vos données personnelles',
-        'consent-pdo'       =>   'Consentement à la communication de vos données personnelles au DPO',
-        'consent-data'      =>   'Consentement à la rectification de vos données personnelles',
-        'consent-forgot'    =>   'Consentement à la suppression de vos données personnelles',
-        'consent-request'   =>   'Consentement à la communication de vos données personnelles',
+        'consent_contact'   =>   'Consentement à la communication de vos données personnelles',
+        'consent_pdo'       =>   'Consentement à la communication de vos données personnelles au DPO',
+        'consent_data'      =>   'Consentement à la rectification de vos données personnelles',
+        'consent_forgot'    =>   'Consentement à la suppression de vos données personnelles',
+        'consent_request'   =>   'Consentement à la communication de vos données personnelles',
     ],
 ];

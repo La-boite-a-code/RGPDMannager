@@ -1,6 +1,6 @@
 <x-rgpdmanager-r-g-p-d-manager-layout>
     <div class="mx-auto max-w-5xl">
-        <h2 class="text-3xl font-bold tracking-tight text-white text-center sm:text-4xl">{{ trans('rgpdmanager::rgpd.titles.' . str_replace('-', '_', $consent->purpose)) }}</h2>
+        <h2 class="text-3xl font-bold tracking-tight text-white text-center sm:text-4xl">{{ __('rgpdmanager::rgpd.titles.' . str_replace('-', '_', $consent->purpose)) }}</h2>
         <p class="mt-2 text-lg leading-8 text-gray-100 text-center">{{ __($consent->explanation) }}</p>
 
         <div class="my-4">
@@ -41,11 +41,11 @@
                     <div class="bg-white/5 sm:rounded-lg p-6">
                         <p class="text-white">{{ __('The data controller decides what the file created with the personal data of users will be used for and by what means this data will be used.') }}
                         </p>
-                        <ul class="list-disc pl-4 text-white">
+                        <ul class="my-2 list-disc pl-4 text-white">
                             <li><strong>{{ __('Responsible') }}</strong> : {{ config('rgpdmanager.pdo_name') }}</li>
                             <li><strong>{{ __('Email Address') }}</strong> : {{ str_replace('@', '[at]', config('rgpdmanager.pdo_email')) }}</li>
                         </ul>
-                        <p class="text-white">{{ __('What Article 4.7 of the GDPR says: “controller” means the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the treatment; where the purposes and means of such processing are determined by Union law or the law of a Member State, the controller may be designated or the specific criteria applicable to his designation may be provided for by the law of the Union or by the law of a Member State.": "What Article 4.7 of the GDPR says: “controller” means the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the treatment; where the purposes and means of such processing are determined by Union law or the law of a Member State, the controller may be designated or the specific criteria applicable to his designation may be provided for by the law of the Union or by the law of a Member State.') }}</p>
+                        <p class="text-white">{{ __('What Article 4.7 of the GDPR says: “controller” means the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the treatment; where the purposes and means of such processing are determined by Union law or the law of a Member State, the controller may be designated or the specific criteria applicable to his designation may be provided for by the law of the Union or by the law of a Member State.') }}</p>
                     </div>
 
                     <h4 class="my-2 text-white">{{ __('History of your consents') }}</h4>

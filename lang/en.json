@@ -5,7 +5,8 @@
   "Your consent has correctly been saved.": "Your consent has correctly been saved.",
   "Name": "Name",
   "Email": "Email",
-  "Phone": "Phone",
+  "Phone Number": "Phone",
+  "Topic": "Topic",
   "Your backup token": "Your backup token",
   "Transfer of data to a third party": "Transfer of data to a third party",
   "Questions about your data?": "Questions about your data?",
@@ -22,5 +23,9 @@
   "Date": "Date",
   "Nature": "Nature",
   "Consent": "Consent",
-  "Opposition": "Opposition"
+  "Refuse": "Refuse",
+  "See consent details": "See consent details",
+  "Responsible": "Responsible",
+  "Email Address": "Email Address",
+  "Send": "Send"
 }

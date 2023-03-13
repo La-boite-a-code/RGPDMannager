@@ -4,7 +4,7 @@
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable" : true,
     "autoload": {
         "psr-4": {
             "Laboiteacode\\RGPDManager\\": "src/"
@@ -32,7 +32,8 @@
         "livewire/livewire": "^2.10",
         "spatie/laravel-honeypot": "^4.3",
         "spatie/laravel-cookie-consent": "^3.2",
-        "jantinnerezo/livewire-alert": "^2.2"
+        "jantinnerezo/livewire-alert": "^2.2",
+        "illuminate/contracts" : "^9.0|^10.0"
     },
     "config": {
         "sort-packages": true

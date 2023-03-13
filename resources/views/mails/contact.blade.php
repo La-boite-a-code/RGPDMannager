@@ -1,5 +1,5 @@
 <x-mail::message>
-# {{ trans('rgpdmanager::mails.' . $type) }}
+# {{ __('rgpdmanager::rgpd.mails.' . $type) }}
 
 @if( strlen($subject) > 0 )
 ### {{ trans('rgpdmanager::rgpd.topic') }}: {{ $subject }}

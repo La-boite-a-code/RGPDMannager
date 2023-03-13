@@ -1,6 +1,10 @@
 <?php
-use Illuminate\Support\Facades\Route;
 use Laboiteacode\RGPDManager\Http\Controllers\ConsentsController;
+use Laboiteacode\RGPDManager\Http\Controllers\ContactController;
+
+if( config('rgpdmanager.enable_contact') ) {
+    Route::middleware('web')->get(config('rgpdmanager.routes.contact_route'), [ContactController::class , 'index'])->name('contact');
+}
 
 Route::prefix(config('rgpdmanager.routes.terms_prefix'))->name('rgpd-manager')->middleware('web')->group(function() {
     Route::get('/', [ConsentsController::class, 'index'])->name('.index');
