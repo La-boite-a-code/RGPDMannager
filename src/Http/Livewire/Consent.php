@@ -116,7 +116,7 @@ class Consent extends Component
         if( $consent ) {
             $this->alreadyConsented = true;
             $this->consented = $consent->action === 'consent';
-            $this->emitTo('contact', 'consentUpdated', $this->consented);
+            $this->emitTo('rgpd-contact', 'consentUpdated', $this->consented);
         }
     }
 

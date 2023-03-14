@@ -3,17 +3,20 @@
 namespace Laboiteacode\RGPDManager\Http\Livewire;
 
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 class Contact extends Component
 {
-    use UsesSpamProtection;
     use WithFileUploads;
+    use UsesSpamProtection;
+    use LivewireAlert;
 
     /**
      * @var \Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData
@@ -52,7 +55,7 @@ class Contact extends Component
     /**
      * @var array
      */
-    public array $files = [];
+    public $files = [];
 
     /**
      * @var bool
@@ -64,6 +67,10 @@ class Contact extends Component
      */
     public bool $isSend = false;
 
+    public bool $isError = false;
+
+    public string $errorMessage = '';
+
     /**
      * @var string
      */
@@ -72,12 +79,14 @@ class Contact extends Component
     /**
      * @var string
      */
-    public $consentName = 'consent-contact';
+    public string $consentName = 'consent-contact';
 
     /**
      * @var string
      */
     public string $type = 'contact';
+
+    public int $captcha = 0;
 
     /**
      * @var string[]
@@ -85,6 +94,16 @@ class Contact extends Component
     public $listeners = [
         'consentUpdated'
     ];
+
+    /**
+     * @return array
+     */
+    public function validationAttributes()
+    {
+        return [
+            'isConsented' => __('Consent')
+        ];
+    }
 
     /**
      * @return array[]
@@ -123,6 +142,32 @@ class Contact extends Component
         $this->isConsented = $consented;
     }
 
+    public function updated($propertyName, $value)
+    {
+        $this->reset('isError', 'errorMessage');
+        if( $propertyName !== 'isConsented' ) {
+            $this->validateOnly($propertyName);
+        }
+
+        if( $propertyName === 'captcha' ) {
+            $this->updatedCaptcha($value);
+        }
+    }
+
+    public function updatedCaptcha($token)
+    {
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token);
+        $this->captcha = $response->json()['score'];
+
+        if( !$this->captcha > .3 ) {
+            $this->submit();
+        } else {
+            $this->isError = true;
+            $this->errorMessage = __("Google thinks you are a bot, please refresh and try again");
+        }
+
+    }
+
     /**
      * @return void
      * @throws \Exception
@@ -133,13 +178,11 @@ class Contact extends Component
         $this->validate();
 
         $files = [];
-        foreach ($this->files as $file) {
-            $fileName = 'contact_' . now()->format('Y-m-d-H-i-s');
-            $files[] =  'contact_' . now()->format('Y-m-d-H-i-s'). '.' . $file->getClientOriginalExtension();
-            $file->store('contact_files', $fileName);
+        foreach ($this->files as $key => $file) {
+            $fileName = 'contact_' . ($key + 1) . '_' . now()->format('Y-m-d-H-i-s'). '.' . $file->getClientOriginalExtension();
+            $files[] = $fileName;
+            $file->storeAs('contact_files', $fileName, config('filesystems.default'));
         }
-
-        dd($files);
 
         Mail::to(config('rgpdmanager.pdo_email'))->send(new \Laboiteacode\RGPDManager\Mail\Contact([
             'name'          => $this->name,
@@ -147,10 +190,11 @@ class Contact extends Component
             'phoneNumber'   => $this->phoneNumber,
             'message'       => $this->message,
             'subject'       => $this->subject,
+            'files'          => $files,
         ], $this->type));
 
         $this->isSend = true;
-        $this->reset('name', 'email', 'phoneNumber', 'message', 'subject');
+        $this->reset('name', 'email', 'phoneNumber', 'message', 'subject', 'files');
     }
 
     public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application

@@ -14,6 +14,22 @@ return [
     'enable_contact'    =>  true,
 
     /**
+     * Enable Global Contact Form
+     * ------------
+     * To enable Google Recaptcha, you need to add your site key and secret key in .env file
+     * with the following keys : RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY
+     * ------------
+     * Don't forget to enable Google Recaptcha in your Google Account
+     * ------------
+     * Don't forget to add this lines in your config/services.php file :
+     *  'recaptcha' =>  [
+     *      'key'       =>  env('RECAPTCHA_SITE_KEY'),
+     *      'secret'    =>  env('RECAPTCHA_SECRET_KEY'),
+     *  ]
+     */
+    'enable_recaptcha'  =>  true,
+
+    /**
      * Contact fields
      * ------------
      * Available Fields : name, topic, email, phone_number, message, file
@@ -38,8 +54,18 @@ return [
         'email'             =>  'required|string|email',
         'phone_number'      =>  'string|nullable|max:10',
         'message'           =>  'required|string',
-        'files'              =>  'nullable|file|max:1024|mimes:pdf,txt,jpg,png,jpeg',
+        'files.*'            =>  'nullable|file|max:1024|mimes:pdf,txt,jpg,png,jpeg',
     ],
+
+    /**
+     * Field to order Terms page
+     */
+    'order_terms_field' => 'id',
+
+    /**
+     * Direction to order Terms page
+     */
+    'order_terms_direction' => 'asc',
 
     /**
      * Routes

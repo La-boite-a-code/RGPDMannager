@@ -35,7 +35,7 @@ class Consent extends Model
             'form_id'       =>  $consents['consent_form_id'],
             'form_url'      =>  $consents['consent_form_url'],
             'data_used'     =>  $consents['consent_data'],
-            'user_id'       =>  auth()->check() ? auth()->user()->id : null,
+            'user_id'       =>  auth()->check() ? auth()->id() : null,
             'action'        =>  $consents['consented'] == '1' ? 'consent' : 'refuse',
             'purpose'       =>  $consents['consent_name'],
             'explanation'   =>  $consents['consent_explanation'],

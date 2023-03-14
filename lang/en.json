@@ -27,5 +27,7 @@
   "See consent details": "See consent details",
   "Responsible": "Responsible",
   "Email Address": "Email Address",
-  "Send": "Send"
+  "Send": "Send",
+  "Google thinks you are a bot, please refresh and try again.": "Google thinks you are a bot, please refresh and try again.",
+  "Your consent has correctly been saved": "Your consent has correctly been saved"
 }

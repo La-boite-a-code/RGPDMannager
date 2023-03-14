@@ -42,6 +42,10 @@ class RGPDManagerServiceProvider extends \Illuminate\Support\ServiceProvider
             $this->publishes([
                 __DIR__.'/../lang' => $this->app->langPath('vendor/rgpdmanager'),
             ], 'rgpdmanager-lang');
+
+            $this->publishes([
+                __DIR__.'/../config/config.php' => config_path('rgpdmanager.php')
+            ], 'rgpdmanager-config');
         }
     }
 }

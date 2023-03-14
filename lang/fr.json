@@ -2,7 +2,6 @@
   "I agree to receive an answer by email": "J'accepte de recevoir une réponse par e-mail",
   "Your name, your email address and your telephone number will not be recorded in our databases, nor communicated to third parties, and will only be used, if necessary, to respond to exchanges of emails requested by sending this form.": "Votre nom, votre adresse e-mail et votre numéro de téléphone ne seront pas enregistrés dans nos bases de données, ni communiqués à des tiers, et ne seront utilisés, si nécessaire, que pour répondre aux échanges d'e-mails demandés en envoyant ce formulaire.",
   "Your email has been sent to us correctly. We will try to answer you as soon as possible.": "Votre e-mail nous est parvenu correctement. Nous essaierons de vous répondre dès que possible.",
-  "Your consent has correctly been saved.": "Votre consentement a été enregistré correctement.",
   "Name": "Nom",
   "Email": "E-mail",
   "Phone Number": "Téléphone",
@@ -28,5 +27,7 @@
   "Responsible": "Responsable",
   "Email Address": "Adresse e-mail",
   "Send": "Envoyer",
-  "From this page you can manage all the permissions you have granted to the site by activating / deactivating your consents.": "À partir de cette page, vous pouvez gérer toutes les autorisations que vous avez accordées au site en activant / désactivant vos consentements."
+  "From this page you can manage all the permissions you have granted to the site by activating / deactivating your consents.": "À partir de cette page, vous pouvez gérer toutes les autorisations que vous avez accordées au site en activant / désactivant vos consentements.",
+  "Google thinks you are a bot, please refresh and try again.": "Google pense que vous êtes un robot, veuillez actualiser et réessayer.",
+  "Your consent has correctly been saved": "Votre consentement a correctement été mis à jour"
 }

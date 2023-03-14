@@ -28,12 +28,15 @@
         "ext-exif": "*",
         "ext-fileinfo": "*",
         "ext-json": "*",
-        "illuminate/database": "^9.18|^10.0",
-        "livewire/livewire": "^2.10",
+        "illuminate/database": "^9.0|^10.0",
+        "illuminate/http": "^9.0|^10.0",
+        "illuminate/contracts" : "^9.0|^10.0",
+        "illuminate/support" : "^9.0|^10.0",
+        "illuminate/mail" : "^9.0|^10.0",
+        "livewire/livewire": "^2.0",
         "spatie/laravel-honeypot": "^4.3",
         "spatie/laravel-cookie-consent": "^3.2",
-        "jantinnerezo/livewire-alert": "^2.2",
-        "illuminate/contracts" : "^9.0|^10.0"
+        "jantinnerezo/livewire-alert": "^2.2"
     },
     "config": {
         "sort-packages": true

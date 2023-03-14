@@ -7,6 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Queue\SerializesModels;
 
 class Contact extends Mailable
@@ -56,13 +57,14 @@ class Contact extends Mailable
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
     public function attachments(): array
     {
-        return [];
+        $attachments = [];
+
+        foreach( $this->content['files'] as $file ) {
+            $attachments[] = Attachment::fromStorageDisk(config('filesystems.default'), 'contact_files/' . $file);
+        }
+
+        return $attachments;
     }
 }
