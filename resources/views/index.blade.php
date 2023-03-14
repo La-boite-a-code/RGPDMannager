@@ -9,47 +9,48 @@
                 <li class="rounded-2xl bg-gray-800 py-10 px-8">
                     <i class="fas fa-envelope fa-3x text-white"></i>
                     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{{ trans('rgpdmanager::rgpd.forms.pdo.title') }}</h3>
-                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.pdo')) }}" class="bg-cyan-400 block rounded mt-4 px-4 py-2 text-white">
-                        {{ trans('rgpdmanager::rgpd.learn_more') }}
+                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.pdo')) }}" class="bg-indigo-500 hover:bg-indigo-800 block rounded mt-4 px-4 py-2 text-white">
+                        {{ __('Learn More') }}
                     </a>
                 </li>
 
                 <li class="rounded-2xl bg-gray-800 py-10 px-8">
                     <i class="fas fa-user-edit fa-3x text-white"></i>
                     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{{ trans('rgpdmanager::rgpd.forms.data.title') }}</h3>
-                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.data')) }}" class="bg-cyan-400 block rounded mt-4 px-4 py-2 text-white">
-                        {{ trans('rgpdmanager::rgpd.learn_more') }}
+                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.data')) }}" class="bg-indigo-500 hover:bg-indigo-800 block rounded mt-4 px-4 py-2 text-white">
+                        {{ __('Learn More') }}
                     </a>
                 </li>
 
                 <li class="rounded-2xl bg-gray-800 py-10 px-8">
                     <i class="fas fa-eraser fa-3x text-white"></i>
                     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{{ trans('rgpdmanager::rgpd.forms.forgot.title') }}</h3>
-                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.forgot')) }}" class="bg-cyan-400 block rounded mt-4 px-4 py-2 text-white">
-                        {{ trans('rgpdmanager::rgpd.learn_more') }}
+                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.forgot')) }}" class="bg-indigo-500 hover:bg-indigo-800 block rounded mt-4 px-4 py-2 text-white">
+                        {{ __('Learn More') }}
                     </a>
                 </li>
 
                 <li class="rounded-2xl bg-gray-800 py-10 px-8">
                     <i class="fas fa-database fa-3x text-white"></i>
                     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{{ trans('rgpdmanager::rgpd.forms.request.title') }}</h3>
-                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.request')) }}" class="bg-cyan-400 block rounded mt-4 px-4 py-2 text-white">
-                        {{ trans('rgpdmanager::rgpd.learn_more') }}
+                    <a href="{{ route('rgpd-manager.contact', config('rgpdmanager.routes.contact.request')) }}" class="bg-indigo-500 hover:bg-indigo-800 block rounded mt-4 px-4 py-2 text-white">
+                        {{ __('Learn More') }}
                     </a>
                 </li>
 
                 <li class="rounded-2xl bg-gray-800 py-10 px-8">
                     <i class="fas fa-user-check fa-3x text-white"></i>
                     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{{ trans('rgpdmanager::rgpd.your_consents') }}</h3>
-                    <a href="{{ route('rgpd-manager.consents', config('rgpdmanager.routes.contact.request')) }}" class="bg-cyan-400 block rounded mt-4 px-4 py-2 text-white">
-                        {{ trans('rgpdmanager::rgpd.learn_more') }}
+                    <a href="{{ route('rgpd-manager.consents', config('rgpdmanager.routes.contact.request')) }}" class="bg-indigo-500 hover:bg-indigo-800 block rounded mt-4 px-4 py-2 text-white">
+                        {{ __('Learn More') }}
                     </a>
                 </li>
 
                 @foreach( $pages as $page )
                 <li class="rounded-2xl bg-gray-800 py-10 px-8">
+                    <i class="fas fa-{{ $page->icon ?? 'file-lines' }} fa-3x text-white"></i>
                     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{{ $page->title }}</h3>
-                    <a href="{{ route('rgpd-manager.page', $page->slug) }}" class="bg-cyan-400 block rounded mt-4 px-4 py-2 text-white">
+                    <a href="{{ route('rgpd-manager.page', $page->slug) }}" class="bg-indigo-500 hover:bg-indigo-800 block rounded mt-4 px-4 py-2 text-white">
                         En savoir plus
                     </a>
                 </li>

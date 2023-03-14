@@ -30,6 +30,11 @@ return [
     'enable_recaptcha'  =>  true,
 
     /**
+     * Use Markdown for Terms and Conditions
+     */
+    'use_markdown'      =>  true,
+
+    /**
      * Contact fields
      * ------------
      * Available Fields : name, topic, email, phone_number, message, file

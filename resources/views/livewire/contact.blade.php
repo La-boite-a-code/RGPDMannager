@@ -80,7 +80,7 @@
         @if( in_array('message', $fields) )
         <div class="sm:col-span-2" wire:key="message_div">
             <label for="message" class="block text-sm font-semibold leading-6 text-white">{{ __('Message') }}</label>
-            <textarea name="message" id="message" rows="4" class=" mt-2.5 block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 @error('message') border-red-500 ring-red-500 text-red-900 placeholder-red-300 @enderror" wire:model="message" wire:key="message_input"></textarea>
+            <textarea name="message" id="message" rows="4" class="mt-2.5 block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 @error('message') border-red-500 ring-red-500 text-red-900 placeholder-red-300 @enderror" wire:model="message" wire:key="message_input"></textarea>
             @error('message')
             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
             @enderror
@@ -88,9 +88,9 @@
         @endif
 
         @if( in_array('files', $fields) )
-        <div class="mt-2.5 sm:col-span-2" wire:key="files_div">
+        <div class="sm:col-span-2" wire:key="files_div">
             <label class="block text-sm font-semibold leading-6 text-white" for="files">{{ __('Upload Files') }}</label>
-            <input class="block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 @error('files.*') border-red-500 ring-red-500 text-red-900 placeholder-red-300 @enderror" wire:model="files" id="files" type="file" multiple wire:key="files_input">
+            <input class="mt-2.5 block w-full rounded-md border-0 bg-white/5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 @error('files.*') border-red-500 ring-red-500 text-red-900 placeholder-red-300 @enderror" wire:model="files" id="files" type="file" multiple wire:key="files_input">
             @error('files.*')
             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
             @enderror

@@ -101,7 +101,8 @@ class Contact extends Component
     public function validationAttributes()
     {
         return [
-            'isConsented' => __('Consent')
+            'isConsented'   => __('Consent'),
+            'files.*'        => __('File'),
         ];
     }
 
