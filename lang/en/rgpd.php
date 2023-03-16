@@ -37,6 +37,7 @@ return [
     'thanks'            =>  "Thank you",
     "phone_sended"      =>  "Left you his phone number:",
     "message_sended"    =>  "left you the following message:",
+    "from_message"      =>  "from :name < :email >",
 
     'titles'            =>  [
         'consent_contact'   =>   'Consent to the communication of your personal data',

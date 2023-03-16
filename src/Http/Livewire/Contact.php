@@ -185,7 +185,7 @@ class Contact extends Component
             $file->storeAs('contact_files', $fileName, config('filesystems.default'));
         }
 
-        Mail::to(config('rgpdmanager.pdo_email'))->send(new \Laboiteacode\RGPDManager\Mail\Contact([
+        Mail::to(config('rgpdmanager.mail_to'))->cc(config('rgpdmanager.mail_cc'))->send(new \Laboiteacode\RGPDManager\Mail\Contact([
             'name'          => $this->name,
             'email'         => $this->email,
             'phoneNumber'   => $this->phoneNumber,
@@ -195,6 +195,16 @@ class Contact extends Component
         ], $this->type));
 
         $this->isSend = true;
+        if( class_exists(\Laravel\Nova\Notifications\NovaNotification::class) ) {
+            $users = \App\Models\User::where('email', config('rgpdmanager.mail_to'))->orWhereIn('email', config('rgpdmanager.mail_cc'))->get();
+            foreach( $users as $user ) {
+                $user->notify(\Laravel\Nova\Notifications\NovaNotification::make()
+                    ->message(__('rgpdmanager::rgpd.mails.' . $this->type) . ' ' . __('rgpdmanager::rgpd.from_message', ['name' => $this->name, 'email' => $this->email]))
+                    ->type('info')
+                );
+            }
+        }
+
         $this->reset('name', 'email', 'phoneNumber', 'message', 'subject', 'files');
     }
 

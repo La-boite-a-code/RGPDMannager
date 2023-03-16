@@ -7,7 +7,7 @@
             </div>
 
             <div class="my-4 text-white">
-                {!! $page->content !!}
+                {!! $page->content_parsed !!}
             </div>
         </div>
     </div>

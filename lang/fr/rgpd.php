@@ -45,6 +45,7 @@ return [
     'thanks'            =>  "Merci",
     "phone_sended"      =>  "Il vous a laissé son numéro de téléphone :",
     "message_sended"    =>  "vous a laissé le message suivant :",
+    "from_message"      =>  "de la part de : :name < :email >",
 
     'titles'            =>  [
         'consent_contact'   =>   'Consentement à la communication de vos données personnelles',

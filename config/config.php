@@ -9,6 +9,12 @@ return [
     'pdo_email'         =>  'john.doe@mysite.com',
 
     /**
+     * Mail To
+     */
+    'mail_to'           =>  'john.doe@mysite.fr',
+    'mail_cc'           =>  [],
+
+    /**
      * Enable Global Contact Form
      */
     'enable_contact'    =>  true,
