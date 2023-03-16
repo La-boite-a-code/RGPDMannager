@@ -92,6 +92,7 @@ return [
             'data'              =>  'data-rectification',
             'forgot'            =>  'forgot-data',
             'request'           =>  'request-data',
+            'contact'           =>  'contact',
         ],
     ]
 ];

@@ -185,13 +185,15 @@ class Contact extends Component
             $file->storeAs('contact_files', $fileName, config('filesystems.default'));
         }
 
-        Mail::to(config('rgpdmanager.mail_to'))->cc(config('rgpdmanager.mail_cc'))->send(new \Laboiteacode\RGPDManager\Mail\Contact([
-            'name'          => $this->name,
-            'email'         => $this->email,
-            'phoneNumber'   => $this->phoneNumber,
-            'message'       => $this->message,
-            'subject'       => $this->subject,
-            'files'          => $files,
+        Mail::to($this->type === 'contact' ? config('rgpdmanager.mail_to') : config('rgpdmanager.pdo_email'))
+            ->cc($this->type === 'contact' ? config('rgpdmanager.mail_cc') : [])
+            ->send(new \Laboiteacode\RGPDManager\Mail\Contact([
+                'name'          => $this->name,
+                'email'         => $this->email,
+                'phoneNumber'   => $this->phoneNumber,
+                'message'       => $this->message,
+                'subject'       => $this->subject,
+                'files'          => $files,
         ], $this->type));
 
         $this->isSend = true;
