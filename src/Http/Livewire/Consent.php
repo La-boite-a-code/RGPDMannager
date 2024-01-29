@@ -116,7 +116,7 @@ class Consent extends Component
         if( $consent ) {
             $this->alreadyConsented = true;
             $this->consented = $consent->action === 'consent';
-            $this->emitTo('rgpd-contact', 'consentUpdated', $this->consented);
+            $this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
         }
     }
 
@@ -142,7 +142,8 @@ class Consent extends Component
             ]
         );
 
-        $this->emitTo('rgpd-contact' , 'consentUpdated' , $this->consented);
+        //$this->emitTo('rgpd-contact' , 'consentUpdated' , $this->consented);
+        $this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
     }
 
     /**

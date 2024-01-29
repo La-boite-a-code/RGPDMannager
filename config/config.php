@@ -94,5 +94,13 @@ return [
             'request'           =>  'request-data',
             'contact'           =>  'contact',
         ],
+    ],
+
+    'livewire_components'   =>  [
+        'contact'       =>  'rgpd-contact',
+    ],
+
+    'livewire_events'        =>  [
+        'consent_updated'   =>  'consentUpdated',
     ]
 ];
