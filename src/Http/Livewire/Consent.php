@@ -117,7 +117,7 @@ class Consent extends Component
             $this->alreadyConsented = true;
             $this->consented = $consent->action === 'consent';
             //$this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
-            $this->dispatchTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
+            $this->dispatch(config('rgpdmanager.livewire_components.contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented)->to('rgpd-contact');
         }
     }
 
@@ -145,7 +145,7 @@ class Consent extends Component
 
         //$this->emitTo('rgpd-contact' , 'consentUpdated' , $this->consented);
         //$this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
-        $this->dispatchTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
+        $this->dispatch(config('rgpdmanager.livewire_components.contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented)->to('rgpd-contact');
     }
 
     /**
