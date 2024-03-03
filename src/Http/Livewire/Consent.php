@@ -4,6 +4,7 @@ namespace Laboiteacode\RGPDManager\Http\Livewire;
 use Illuminate\Contracts\View\View;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class Consent extends Component
 {
@@ -87,9 +88,9 @@ class Consent extends Component
     /**
      * @var string[]
      */
-    public $listeners = [
-        'setTokenFromLocalStorage'
-    ];
+//    public $listeners = [
+//        'setTokenFromLocalStorage'
+//    ];
 
     /**
      * Montage du composant
@@ -105,6 +106,7 @@ class Consent extends Component
      *
      * @param $token
      */
+    #[On('setTokenFromLocalStorage')]
     public function setTokenFromLocalStorage($token): void
     {
         $this->token = $token;
@@ -117,7 +119,7 @@ class Consent extends Component
             $this->alreadyConsented = true;
             $this->consented = $consent->action === 'consent';
             //$this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
-            $this->dispatch(config('rgpdmanager.livewire_components.contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented)->to('rgpd-contact');
+            $this->dispatch(config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented)->to(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'));
         }
     }
 
@@ -145,7 +147,7 @@ class Consent extends Component
 
         //$this->emitTo('rgpd-contact' , 'consentUpdated' , $this->consented);
         //$this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
-        $this->dispatch(config('rgpdmanager.livewire_components.contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented)->to('rgpd-contact');
+        $this->dispatch(config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented)->to(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'));
     }
 
     /**

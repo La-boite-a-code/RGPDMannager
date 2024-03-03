@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\On;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
@@ -91,9 +92,9 @@ class Contact extends Component
     /**
      * @var string[]
      */
-    public $listeners = [
-        'consentUpdated'
-    ];
+//    public $listeners = [
+//        'consentUpdated'
+//    ];
 
     /**
      * @return array
@@ -134,10 +135,12 @@ class Contact extends Component
         $this->extraFields = new HoneypotData();
     }
 
+
     /**
      * @param $consented
      * @return void
      */
+    #[On('consentUpdated')]
     public function consentUpdated($consented): void
     {
         $this->isConsented = $consented;

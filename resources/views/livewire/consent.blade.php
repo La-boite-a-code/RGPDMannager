@@ -15,7 +15,7 @@
             <div class="flex justify-center items-center h-full">
 
                 <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                    <input type="checkbox" name="consent_{{ $consentName }}" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 text-white appearance-none cursor-pointer" id="{{ $consentName }}" wire:model="consented" value="{{ old('consented', 1) }}" />
+                    <input type="checkbox" name="consent_{{ $consentName }}" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 text-white appearance-none cursor-pointer" id="{{ $consentName }}" wire:model.live="consented" value="{{ old('consented', 1) }}" />
                     <label for="consent_{{ $consentName }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                 </div>
 
