@@ -143,7 +143,7 @@ class Contact extends Component
         $this->isConsented = $consented;
     }
 
-    public function updated($propertyName, $value)
+    public function updated($propertyName, $value): void
     {
         $this->reset('isError', 'errorMessage');
         if( $propertyName !== 'isConsented' ) {
@@ -155,7 +155,7 @@ class Contact extends Component
         }
     }
 
-    public function updatedCaptcha($token)
+    public function updatedCaptcha($token): void
     {
         $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token);
         $this->captcha = $response->json()['score'];

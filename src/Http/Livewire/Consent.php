@@ -116,11 +116,12 @@ class Consent extends Component
         if( $consent ) {
             $this->alreadyConsented = true;
             $this->consented = $consent->action === 'consent';
-            $this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
+            //$this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
+            $this->dispatchTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact'), config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated'), $this->consented);
         }
     }
 
-    public function updatedConsented()
+    public function updatedConsented(): void
     {
         \Laboiteacode\RGPDManager\Models\Consent::createConsent([
             'consent_name'        => $this->consentName,
@@ -143,7 +144,8 @@ class Consent extends Component
         );
 
         //$this->emitTo('rgpd-contact' , 'consentUpdated' , $this->consented);
-        $this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
+        //$this->emitTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
+        $this->dispatchTo(config('rgpdmanager.livewire_components.contact', 'rgpd-contact') , config('rgpdmanager.livewire_events.consent_updated', 'consentUpdated') , $this->consented);
     }
 
     /**
