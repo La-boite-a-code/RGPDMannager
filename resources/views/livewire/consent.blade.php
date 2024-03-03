@@ -50,7 +50,7 @@
                     token = localStorage.getItem(SITE_SLUG + '_consent_token');
                 }
 
-                window.Livewire.emit('setTokenFromLocalStorage', token);
+                window.Livewire.dispatch('setTokenFromLocalStorage', token);
             }
         });
     </script>
